@@ -46,9 +46,7 @@ client.on ("guildMemberAdd", member => {
     member.addRole (role);
 });
 
-client.on ("guildMemberRemove", member => {
 
-});
 
 client.on("message", async message => {
     const prefix = "_";

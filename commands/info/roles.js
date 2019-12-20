@@ -12,9 +12,10 @@ module.exports = {
 
         const a = message.guild.roles.get('656853661653270567'); // Zweryfikowny
         const b = message.guild.roles.get('619581619614908417'); // ⚡️WIDZ⚡️
-        const c = message.guild.roles.get('656854366275371030'); // Role
+        const c = message.guild.roles.get('656851728838164490') //bez weryfikacji
+        
     
-        const filter = (reaction, user) => ['🙌🏻', '👏🏻', '🙏🏻'].includes(reaction.emoji.name) && user.id === message.author.id;
+        const filter = (reaction, user) => ['🙌🏻', '👏🏻'].includes(reaction.emoji.name) && user.id === message.author.id;
     
         const embed = new RichEmbed()
             .setTitle('Dostępne role')
@@ -22,7 +23,6 @@ module.exports = {
             
             🙌🏻 ${a.toString()}
             👏🏻 ${b.toString()}
-            🙏🏻 ${c.toString()}
     
             `)
             .setColor(0xdd9323)
@@ -32,7 +32,6 @@ module.exports = {
     
             await msg.react('🙌🏻');
             await msg.react('👏🏻');
-            await msg.react('🙏🏻');
     
             msg.awaitReactions(filter, {
                 max: 1,
@@ -52,8 +51,10 @@ module.exports = {
                             console.log(err);
                             return message.channel.send(`Błąd podczas dodawania Cię do tej roli: **${err.message}**.`);
                         });
+                        message.member.removeRole(c);
                         message.author.send(`Dostałeś role: **${a.name}** `).then(m => m.delete(10000));
                         msg.delete();
+                        
                         break;
                     case '👏🏻':
                         if (message.member.roles.has(b.id)) {
@@ -65,18 +66,6 @@ module.exports = {
                             return message.channel.send(`Błąd podczas dodawania Cię do tej roli: **${err.message}**.`);
                         });
                         message.author.send(`Dostałeś role: **${b.name}** `).then(m => m.delete(10000));
-                        msg.delete();
-                        break;
-                    case '🙏🏻':
-                        if (message.member.roles.has(c.id)) {
-                            msg.delete(2000);
-                            return message.channel.send('Jesteś już w tej roli!').then(m => m.delete(3000));
-                        }
-                        message.member.addRole(c).catch(err => {
-                            console.log(err);
-                            return message.channel.send(`Błąd podczas dodawania Cię do tej roli: **${err.message}**.`);
-                        });
-                        message.author.send(`Dostałeś role: **${c.name}** `).then(m => m.delete(10000));
                         msg.delete();
                         break;
                 }
