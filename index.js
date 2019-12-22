@@ -31,7 +31,7 @@ client.on("ready", () => {
             `Subskrybuj Flawani YouTube`,
             `Miłego dnia!`,
             `Wesołych Świąt 🎅`
-            `Prefix: '_'`,
+            `Prefix: _`,
             `Dzisiaj jest ${moment(Date.now()).format('DD.MM.YYYYr.')}`, //DD.MM.YYYYr.
         ]
         let status = statuses[Math.floor(Math.random() * statuses.length)];
