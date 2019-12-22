@@ -30,7 +30,7 @@ client.on("ready", () => {
         let statuses = [
             `Subskrybuj Flawani YouTube`,
             `Miłego dnia!`,
-            `Wesołych Świąt 🎅`
+            `Wesołych Świąt 🎅`,
             `Prefix: _`,
             `Dzisiaj jest ${moment(Date.now()).format('DD.MM.YYYYr.')}`, //DD.MM.YYYYr.
         ]
