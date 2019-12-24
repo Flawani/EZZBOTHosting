@@ -10,9 +10,10 @@ module.exports = {
 
         await message.delete().catch(O_o=>{});
 
-        const a = message.guild.roles.get('656853661653270567'); // Zweryfikowny
+        const a = message.guild.roles.get('659021628956475413'); // Zweryfikowny
         const b = message.guild.roles.get('619581619614908417'); // ⚡️WIDZ⚡️
-        const c = message.guild.roles.get('656851728838164490') //bez weryfikacji
+        const c = message.guild.roles.get('659019366553354251'); // bez weryfikacji
+         
         
     
         const filter = (reaction, user) => ['🙌🏻', '👏🏻'].includes(reaction.emoji.name) && user.id === message.author.id;
